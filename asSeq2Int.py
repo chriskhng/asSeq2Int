@@ -8,6 +8,7 @@ lst_rawFASTA = []
 lst_comma_raw_FASTA = []
 lst_trimmed_FASTA = []
 proteinSeqOnly = []
+lst_FASTAentry = []
 
 #### TODO put Part 1 function below
 #### Part 1 reformat the FASTA file into list of list for Part 2
@@ -19,6 +20,15 @@ with open('dummy1.FASTA') as FASTA_file:
 lst_rawFASTA = FASTA_data.split('*\n>')
 
 for FASTAprotein in lst_rawFASTA:
+#### we pull out the protein name from each FASTA entry
+    #print(FASTAprotein)
+    #print(FASTAprotein.find(','))
+    FASTAproteinNames = FASTAprotein[0: FASTAprotein.find(',')]
+    #print(FASTAproteinNames)
+    proteinNamesSep = FASTAproteinNames.split(" ")
+
+
+#### now we put out the protein sequence from the FASTA list
 #### replaces all \n with ,
     FASTAprotein_comma = FASTAprotein.replace("\n", ", ")
 #### replaces all '\",' with \&
