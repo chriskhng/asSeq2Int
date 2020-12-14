@@ -11,58 +11,58 @@ proteinSeqOnly = []
 lst_FASTAentry = []
 lst_masterFASTA = []
 
-#### TODO put Part 1 function below
-#### Part 1 reformat the FASTA file into list of list for Part 2
-#### It first opens the file
+## - #### Part 1
+
+## - Part 1 reformat the FASTA file into list of list for Part 2
+## - It first opens the file
 with open('dummy1.FASTA') as FASTA_file:
     FASTA_data = FASTA_file.read()
-#### File can close now
-#### Splits the file into a list using "*/n>" as the delimiter
+## - File can close now
+
+## - Splits the file into a list using "*/n>" as the delimiter
+## - lst_rawFASTA is a list of each protein entry, containing protein name, sequence, etc, in a single string
 lst_rawFASTA = FASTA_data.split('*\n>')
 
-for FASTAprotein in lst_rawFASTA:
-#### we pull out the protein name from each FASTA entry
-    FASTAproteinNames = FASTAprotein[0: FASTAprotein.find(',')]
-    proteinNamesSep = FASTAproteinNames.split(" ")
+## - relevant info will be pulled out from each protein entry
+## - We are interested in the protein name and protein sequence
+for protein_entry in lst_rawFASTA:
+## - The protein name is pulled from each FASTA entry and saved into FASTAproteinNames
+## - This is done by indexing from 0 to the first comma (which delimits name from the next entry)
+    FASTAproteinNames = protein_entry[0: protein_entry.find(',')]
 
-#### now we put out the protein sequence from the FASTA list
-#### replaces all \n with ,
-    FASTAprotein_comma = FASTAprotein.replace("\n", ", ")
-#### replaces all '\",' with \&
+## - Next, the protein sequence is pulled from protein_entry. Reformatting is required.
+## - The protein sequence in protein_entry is seprated by "\n"
+## - First, '\n' is replaced with ", "
+    FASTAprotein_comma = protein_entry.replace("\n", ", ")
+## - Next, the beginning of the protein sequence (and end of the previous item) is marked by '*$'
     for_protein_seqjoin = FASTAprotein_comma.replace('\",', '*$')
-#### Saves sequence data into proteinSeqOnly starting from index of (*$ +3) to the last index
-    proteinSeqOnly = for_protein_seqjoin[ for_protein_seqjoin.find("*$")+3:]
+## - Then, only the string with sequence info is saved into proteinSeqOnly
+## - This is done by indexing from where ("*$" is located + 3) till the end of the string
+    proteinSeqOnly = for_protein_seqjoin[for_protein_seqjoin.find("*$")+3:]
+## - Finally, the protein sequence is joined together by removing ', '
+## - proteinSeqFinal is the protein sequence of each protein entry
     proteinSeqFinal = proteinSeqOnly.replace(', ', '')
+
+## - Now, we put protein name and protein sequence together into a list for each entry
+## - First, the protein names are separated into genomic name, common name, and ID name
     lst_FASTAentry = FASTAproteinNames.split(' ')
+## - Next, the protein sequence is appended to end of the names.
     lst_FASTAentry.append (proteinSeqFinal)
+## - Finally, the list for the entry is appended to the growing list of protein entries from the FASTA.
     lst_masterFASTA.append (lst_FASTAentry)
 
-# lst_masterFASTA is trimmed to rid of the > and * and the start and end (artifacts from the above reformatting)
+
+## - At this point, lst_masterFASTA contains artifacts from the reformatting above.
+## - Namely, ">" and "*" remains on the first of first and last of last indices respectively.
+## - These artifacts are removed in the following 2 lines.
 (lst_masterFASTA[0])[0] = (lst_masterFASTA[0])[0].replace('>', '')
 (lst_masterFASTA[-1])[-1] = (lst_masterFASTA[-1])[-1].replace('*', '')
 print(lst_masterFASTA)
-#print(FASTAmasterIndex0)
-#lst_masterFASTA_untrimmed[1[1]].replace('>', '')
-#print(lst_masterFASTA_untrimmed)
+
+## - This list of list of protein entries will be used in Part 2.
+## - This list will be searched for the user-input SoI to output the name of proteins containing the SoI
 
 
-
-
-
-
-
-
-   # for line in FASTA_file
-    #lst_rawFASTA = FASTA_file.split('*/n>')
-    #for line in FASTA_file:
-     #   print(line)
-
-
-#### "reverse compliment, " is removed
-
-#### "/n" is replaced with ", " for all items in list
-
-#### items in list is split into a list with ", " as the delimiter.
 
 #### TESTING lines
 #print(lst_rawFASTA)
