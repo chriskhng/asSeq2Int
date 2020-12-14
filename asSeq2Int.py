@@ -37,8 +37,14 @@ for FASTAprotein in lst_rawFASTA:
     #print(for_protein_seqjoin.find("*$"))
     #print(for_protein_seqjoin[for_protein_seqjoin.find("*$")+3])
 #### Saves sequence data into proteinSeqOnly starting from index of (*$ +3) to the last index
-    proteinSeqOnly = for_protein_seqjoin[ for_protein_seqjoin.find("*$")+3: -1]
-    print(proteinSeqOnly)
+    proteinSeqOnly = for_protein_seqjoin[ for_protein_seqjoin.find("*$")+3:]
+    #print(proteinSeqOnly)
+    proteinSeqFinal = proteinSeqOnly.replace(', ', '')
+    #print(proteinSeqFinal)
+    lst_FASTAentry = FASTAproteinNames.split(' ')
+    lst_FASTAentry.append (proteinSeqFinal)
+    print(lst_FASTAentry)
+
 
 
 #### splits those items by ", " into list
