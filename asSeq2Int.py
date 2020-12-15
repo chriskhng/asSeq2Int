@@ -96,3 +96,5 @@ for protein_entry in lst_masterFASTA:
         else:
             continue
 
+# TODO: Export Part 2's results as a .csv file for CIBR purposes
+
