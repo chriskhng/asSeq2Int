@@ -8,7 +8,7 @@ lst_rawFASTA = []
 proteinSeqOnly = []
 lst_FASTAentry = []
 lst_masterFASTA = []
-lst_results = []
+lst_results = [['Protein Name', 'Sequence Hit', 'Position of Hit']]
 
 ## - #### Part 1
 
@@ -69,7 +69,7 @@ print(lst_masterFASTA)
 import re
 
 ######### NEEDS TO BE ACTUALLY user input at the end
-user_input_SoI = "SxSXSSXXSXSS"
+user_input_SoI = "mxxt" #SxSXSSXXSXSS
 ## - the user input SoI will be .upper, in case user input in lowercase
 upper_SoI = user_input_SoI.upper()
 ## - Then, if the user used x to denote "any", it will be replaced by .
@@ -99,5 +99,10 @@ for protein_entry in lst_masterFASTA:
         else:
             continue
 print(lst_results)
-# TODO: Export Part 2's results as a .csv file for CIBR purposes
+
+import csv
+with open('temp_results.csv', 'w', newline='') as temp_results_file:
+    writer = csv.writer(temp_results_file)
+    writer.writerows(lst_results)
+
 
