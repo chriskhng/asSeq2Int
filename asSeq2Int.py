@@ -66,25 +66,32 @@ print(lst_masterFASTA)
 import re
 
 # SxSXSSXXSXSS
+######### NEEDS TO BE ACTUALLY user input at the end
 user_input_SoI = "SxSXSSXXSXSS"
+## - the user input SoI will be .upper, in case user input in lowercase
 upper_SoI = user_input_SoI.upper()
+## - Then, if the user used x to denote "any", it will be replaced by .
 regex_SoI = upper_SoI.replace("X", ".")
+## - the reformated user-input is then placed into RegEx pattern match syntax
 pattern = '^' + regex_SoI + "$"
 
-
+## - The protein sequence in each protein entry in lst_masterFASTA will be iterated thru searching for SoI
 for protein_entry in lst_masterFASTA:
 ## protein_entry looks like:
     #protein_entry = ['YAL001C', 'TFC3', 'SGDID:S000000001', 'MVLTIYPDELVQIVSDKI..."
-    protein_seq = protein_entry[3]  #'MITTIY' #VQIVSDKIASNKGKIT'
-    for i in range(len(protein_seq)-(len(pattern)-3)):
-        it_test_string =protein_seq[i:(i + len(pattern) - 2)]
-        #print(protein_seq[i:(i+len(pattern)-2)])
-        result = re.match(pattern, it_test_string)
+    protein_seq = protein_entry[3]
+## - The following cuts each protein sequence into blocks with the length of the input SoI
+    for i in range(len(protein_seq)-(len(user_input_SoI)-1)):
+        protein_sequence_block =protein_seq[i:(i + len(user_input_SoI))]
+        # The following commented code checks to see if I cut the blocks correctly
+        # print(protein_seq[i:(i+len(pattern)-2)])
+        result = re.match(pattern, protein_sequence_block)
+## - If a protein sequence block matches the user-input sequence, it will print:
         if result:
             print(upper_SoI + " found in:")
-            print(protein_entry[1])
+            print(protein_entry[1]) # the protein name and ...
             print("as " + protein_seq[i:(i + len(pattern) - 2)] + ' which starts at position: ' + str(i+1) + "\n")
-
+## - the actual sequence it matched, and which amino acid position the match started in the protein sequence
         else:
             continue
 
