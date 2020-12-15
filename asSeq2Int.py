@@ -8,6 +8,7 @@ lst_rawFASTA = []
 proteinSeqOnly = []
 lst_FASTAentry = []
 lst_masterFASTA = []
+lst_results = []
 
 ## - #### Part 1
 
@@ -92,9 +93,11 @@ for protein_entry in lst_masterFASTA:
             print(upper_SoI + " found in:")
             print(protein_entry[1]) # the protein name and ...
             print("as " + protein_seq[i:(i + len(pattern) - 2)] + ' which starts at position: ' + str(i+1) + "\n")
+            # The following appends to a list that will be used to populate the output .txt file
+            lst_results.append([protein_entry[1], protein_seq[i:(i + len(pattern) - 2)], str(i+1)])
 ## - the actual sequence it matched, and which amino acid position the match started in the protein sequence
         else:
             continue
-
+print(lst_results)
 # TODO: Export Part 2's results as a .csv file for CIBR purposes
 
