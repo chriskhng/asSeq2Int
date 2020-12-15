@@ -20,4 +20,7 @@ But the code should be able to take any sequence of interest. So feel free to te
 
 ## Version
 
+
+0.2.0 Part 1 function implemented: FASTA file can be reformatted into a list for Part 2 
+
 0.1.0 Initial Code Commit
