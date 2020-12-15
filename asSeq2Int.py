@@ -5,8 +5,6 @@
 
 ## - #### Initialize empty lists
 lst_rawFASTA = []
-lst_comma_raw_FASTA = []
-lst_trimmed_FASTA = []
 proteinSeqOnly = []
 lst_FASTAentry = []
 lst_masterFASTA = []
@@ -59,13 +57,5 @@ for protein_entry in lst_rawFASTA:
 (lst_masterFASTA[-1])[-1] = (lst_masterFASTA[-1])[-1].replace('*', '')
 print(lst_masterFASTA)
 
-## - This list of list of protein entries will be used in Part 2.
+## - This list of sublists of protein entries will be used in Part 2.
 ## - This list will be searched for the user-input SoI to output the name of proteins containing the SoI
-
-
-
-#### TESTING lines
-#print(lst_rawFASTA)
-#print(lst_comma_raw_FASTA)
-#print(FASTAprotein_seqjoin)
-#print(lst_trimmed_FASTA)
