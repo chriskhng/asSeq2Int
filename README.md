@@ -20,6 +20,7 @@ But the code should be able to take any sequence of interest. So feel free to te
 
 ## Version
 
+0.3.0 Part 2 function implemented: list from Part 1 is searched for a code-defined SoI
 
 0.2.0 Part 1 function implemented: FASTA file can be reformatted into a list for Part 2 
 
