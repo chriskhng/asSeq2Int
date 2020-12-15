@@ -59,3 +59,31 @@ print(lst_masterFASTA)
 
 ## - This list of sublists of protein entries will be used in Part 2.
 ## - This list will be searched for the user-input SoI to output the name of proteins containing the SoI
+
+
+## - #### Part 2
+
+import re
+
+user_input_SoI = "SxSXSSXXSXSS"
+upper_SoI = user_input_SoI.upper()
+regex_SoI = upper_SoI.replace("X", ".")
+pattern = '^' + regex_SoI + "$"
+
+
+for protein_entry in lst_masterFASTA:
+## protein_entry looks like:
+    #protein_entry = ['YAL001C', 'TFC3', 'SGDID:S000000001', 'MVLTIYPDELVQIVSDKI..."
+    protein_seq = protein_entry[3]  #'MITTIY' #VQIVSDKIASNKGKIT'
+    for i in range(len(protein_seq)-(len(pattern)-3)):
+        it_test_string =protein_seq[i:(i + len(pattern) - 2)]
+        #print(protein_seq[i:(i+len(pattern)-2)])
+        result = re.match(pattern, it_test_string)
+        if result:
+            print(upper_SoI + " found in:")
+            print(protein_entry[0:3])
+            print("as " + protein_seq[i:(i + len(pattern) - 2)] + ' which starts at position: ' + str(i+1))
+
+        else:
+            continue
+
