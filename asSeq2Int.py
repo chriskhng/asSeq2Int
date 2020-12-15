@@ -62,10 +62,11 @@ print(lst_masterFASTA)
 
 
 ## - #### Part 2
+## - Part 2 will search the lst_masterFASTA from Part 1 for the user-input SoI
 
+## - Regular Expression (re) is imported and will be used for the search.
 import re
 
-# SxSXSSXXSXSS
 ######### NEEDS TO BE ACTUALLY user input at the end
 user_input_SoI = "SxSXSSXXSXSS"
 ## - the user input SoI will be .upper, in case user input in lowercase
