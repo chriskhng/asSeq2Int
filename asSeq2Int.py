@@ -65,6 +65,7 @@ print(lst_masterFASTA)
 
 import re
 
+# SxSXSSXXSXSS
 user_input_SoI = "SxSXSSXXSXSS"
 upper_SoI = user_input_SoI.upper()
 regex_SoI = upper_SoI.replace("X", ".")
@@ -81,8 +82,8 @@ for protein_entry in lst_masterFASTA:
         result = re.match(pattern, it_test_string)
         if result:
             print(upper_SoI + " found in:")
-            print(protein_entry[0:3])
-            print("as " + protein_seq[i:(i + len(pattern) - 2)] + ' which starts at position: ' + str(i+1))
+            print(protein_entry[1])
+            print("as " + protein_seq[i:(i + len(pattern) - 2)] + ' which starts at position: ' + str(i+1) + "\n")
 
         else:
             continue
