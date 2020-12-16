@@ -12,7 +12,7 @@ python3 asSeq2Int.py
 now=$(date +"%F-%H-%M-%S")
 ## - Copies and renames the temp_result.csv output from asSeq2Int.py
 ## - as SeqHit$now.csv
-cp temp_results.csv SeqHit$now.csv
+cp temp_results.csv SeqHit-$now.csv
 ## - then prints out the file name for the user
 echo "SeqHit Filename: SeqHit-$now.csv"
 
