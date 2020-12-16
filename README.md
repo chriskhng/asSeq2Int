@@ -20,6 +20,8 @@ But the code should be able to take any sequence of interest. So feel free to te
 
 ## Version
 
+0.5.2 Bug fixed. Permissions edited for main.sh. rsync for the named output file works properly now. 
+
 0.5.1 Dummy FASTA file for testing added to repository (erroneously omitted before)
 
 0.5.0 main.sh launches asSep2Int.py, renames the output file as SeqHit(date-time).csv and rsyncs it to the result dir. 
