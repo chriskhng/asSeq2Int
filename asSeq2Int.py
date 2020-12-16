@@ -3,6 +3,15 @@
 ## -
 ## - Created by Chris Ng 20201214
 
+## - input the user SoI here:
+## - post-CIBR version will prompt the user in the terminal for an SoI
+user_input_SoI = "mxxt" #SxSXSSXXSXSS
+## - The following can be used to test the code
+## SxSxSSXXSXSS
+## s.sXs
+## S.s
+## m.xT
+
 ## - #### Initialize empty lists
 lst_rawFASTA = []
 proteinSeqOnly = []
@@ -68,8 +77,7 @@ print(lst_masterFASTA)
 ## - Regular Expression (re) is imported and will be used for the search.
 import re
 
-######### NEEDS TO BE ACTUALLY user input at the end
-user_input_SoI = "mxxt" #SxSXSSXXSXSS
+
 ## - the user input SoI will be .upper, in case user input in lowercase
 upper_SoI = user_input_SoI.upper()
 ## - Then, if the user used x to denote "any", it will be replaced by .
@@ -107,5 +115,5 @@ with open('temp_results.csv', 'w', newline='') as temp_results_file:
 
 ## - #### The .py code is over for the purposes of the CIBR final project
 ## - #### Next, temp_results.csv will be copied and renamed to the date-time.csv
-## - #### Finally, this renamed csv will be rsynced
+## - #### Finally, this renamed csv will be rsync'ed
 ## - #### (currently set to a temp_dir in the current dir, but can be changed to a local dir).
