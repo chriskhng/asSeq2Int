@@ -18,6 +18,6 @@ echo "SeqHit Filename: SeqHit-$now.csv"
 
 
 ## - This renamed file is then rsync'd to SeqHitResults directory
-rsync -a SeqHit-$now.csv SeqHitResults
+rsync -a SeqHit-$now.csv SeqHitResults/
 rm SeqHit*.csv
 ## - The Seqeunce Hit results are now ready to be opened and interpreted!
