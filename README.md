@@ -20,6 +20,8 @@ But the code should be able to take any sequence of interest. So feel free to te
 
 ## Version
 
+0.6.0 Slurm scheduler support implemented. Run slurm.sh to use!
+
 0.5.2 Bug fixed. Permissions edited for main.sh. rsync for the named output file works properly now. 
 
 0.5.1 Dummy FASTA file for testing added to repository (erroneously omitted before)
