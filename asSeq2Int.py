@@ -65,7 +65,7 @@ for protein_entry in lst_rawFASTA:
 ## - These artifacts are removed in the following 2 lines.
 (lst_masterFASTA[0])[0] = (lst_masterFASTA[0])[0].replace('>', '')
 (lst_masterFASTA[-1])[-1] = (lst_masterFASTA[-1])[-1].replace('*', '')
-print(lst_masterFASTA)
+# print(lst_masterFASTA)
 
 ## - This list of sublists of protein entries will be used in Part 2.
 ## - This list will be searched for the user-input SoI to output the name of proteins containing the SoI
