@@ -98,11 +98,14 @@ for protein_entry in lst_masterFASTA:
 ## - the actual sequence it matched, and which amino acid position the match started in the protein sequence
         else:
             continue
-print(lst_results)
 
+## - lst_results is then written into temp_results.csv with csv module
 import csv
 with open('temp_results.csv', 'w', newline='') as temp_results_file:
     writer = csv.writer(temp_results_file)
     writer.writerows(lst_results)
 
-
+## - #### The .py code is over for the purposes of the CIBR final project
+## - #### Next, temp_results.csv will be copied and renamed to the date-time.csv
+## - #### Finally, this renamed csv will be rsynced
+## - #### (currently set to a temp_dir in the current dir, but can be changed to a local dir).
