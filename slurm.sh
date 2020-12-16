@@ -5,4 +5,4 @@
 
 ./main.sh
 
-
+echo "You've used slurm.sh"
