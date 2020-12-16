@@ -8,6 +8,7 @@ lst_rawFASTA = []
 proteinSeqOnly = []
 lst_FASTAentry = []
 lst_masterFASTA = []
+lst_results = [['Protein Name', 'Sequence Hit', 'Position of Hit']]
 
 ## - #### Part 1
 
@@ -68,7 +69,7 @@ print(lst_masterFASTA)
 import re
 
 ######### NEEDS TO BE ACTUALLY user input at the end
-user_input_SoI = "SxSXSSXXSXSS"
+user_input_SoI = "mxxt" #SxSXSSXXSXSS
 ## - the user input SoI will be .upper, in case user input in lowercase
 upper_SoI = user_input_SoI.upper()
 ## - Then, if the user used x to denote "any", it will be replaced by .
@@ -92,7 +93,19 @@ for protein_entry in lst_masterFASTA:
             print(upper_SoI + " found in:")
             print(protein_entry[1]) # the protein name and ...
             print("as " + protein_seq[i:(i + len(pattern) - 2)] + ' which starts at position: ' + str(i+1) + "\n")
+            # The following appends to a list that will be used to populate the output .txt file
+            lst_results.append([protein_entry[1], protein_seq[i:(i + len(pattern) - 2)], str(i+1)])
 ## - the actual sequence it matched, and which amino acid position the match started in the protein sequence
         else:
             continue
 
+## - lst_results is then written into temp_results.csv with csv module
+import csv
+with open('temp_results.csv', 'w', newline='') as temp_results_file:
+    writer = csv.writer(temp_results_file)
+    writer.writerows(lst_results)
+
+## - #### The .py code is over for the purposes of the CIBR final project
+## - #### Next, temp_results.csv will be copied and renamed to the date-time.csv
+## - #### Finally, this renamed csv will be rsynced
+## - #### (currently set to a temp_dir in the current dir, but can be changed to a local dir).
