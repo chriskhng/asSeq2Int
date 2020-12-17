@@ -15,7 +15,7 @@ It will then output a .csv that list proteins (included in the FASTA file) that 
 
 
 ####Inputs
-A dummy FASTA dataset has been created and included in the repository for testing purposes. If you want to use a 
+A dummy FASTA dataset is included in the repository for testing purposes. If you want to use a 
 different FASTA, replace dummy1.FASTA with your .FASTA file name seen below in asSeq2Int.py:
 
 ```
@@ -37,7 +37,7 @@ Sample amino acid sequences are included below with the number of sequence hits 
 ```
 ./main.sh
 ```
-This will run asSeq2Int.py, rename the output .csv to SeqHit-DATE-TIME.cav, and rsync it to the SeqHitResults directory.
+This will run asSeq2Int.py, rename the output .csv to SeqHit-DATE-TIME.csv, and rsync it to the SeqHitResults directory.
 
 If a larger FASTA is used, one may consider using HPC with SLURM.
 
@@ -48,7 +48,7 @@ sbatch slurm.sh
 This simply runs ./main.sh, and saves the CLI output to SeqHitReadOut.JobID.txt
 The output .csv will still be renamed and rsync'ed to the SeqHitResults directory. 
 
-####Sample Sequence of interest input:
+####Sample Sequence of Interest input:
 Number in brackets = number of hits in dummy1.FASTA
 - SxSxSSXXSXSS (3)
 - SxxTxxY (5)
@@ -58,7 +58,7 @@ Number in brackets = number of hits in dummy1.FASTA
 - RRTYP (0)
 - RxTkP (1)
 
-But the code should be able to take any sequence of interest. So feel free to test it out!
+The code should be able to take any sequence of interest. So feel free to test it out!
 
 ## Version log
 
