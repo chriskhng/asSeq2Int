@@ -3,9 +3,10 @@
 ## -
 ## - Created by Chris Ng 20201214
 
-## - input the user SoI here:
+## - input the user SoI here: - ##
 ## - post-CIBR version will prompt the user in the terminal for an SoI
-user_input_SoI = "mxxt" #SxSXSSXXSXSS
+user_input_SoI = "mxxt"
+
 ## - The following can be used to test the code
 ## SxSxSSXXSXSS
 ## s.sXs
@@ -23,7 +24,7 @@ lst_results = [['Protein Name', 'Sequence Hit', 'Position of Hit']]
 
 ## - Part 1 reformat the FASTA file into list of list for Part 2
 ## - It first opens the file
-with open('dummy1.FASTA') as FASTA_file:
+with open('dummy1.FASTA') as FASTA_file: #Actual code will ask for the name of the .FASTA
     FASTA_data = FASTA_file.read()
 ## - File can close now
 
