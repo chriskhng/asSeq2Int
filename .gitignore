@@ -6,6 +6,7 @@
 # results files
 *.csv
 SeqHitResults
+SeqHitReadOut.*.txt
 
 # Node artifact files
 node_modules/
